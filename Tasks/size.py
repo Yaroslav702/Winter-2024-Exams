@@ -1,6 +1,10 @@
 def size(size: int) -> str:
     converted_size = '0 byte'
 
+    if size != 0:
+        exponent = size.bit_length() // 10
+        converted_size = calculate_size_from_exp(size, exponent)
+
     return converted_size
 
 
