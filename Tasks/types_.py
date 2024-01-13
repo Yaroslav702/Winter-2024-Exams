@@ -5,6 +5,10 @@ def count_types(l: list) -> dict:
         'bool': 0
     }
 
+    for element in l:
+        element_type = type(element).__name__
+        types_count[element_type] += 1
+
     return types_count
 
 
