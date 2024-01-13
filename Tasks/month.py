@@ -16,4 +16,6 @@ MONTHS = [
 ]
 
 def get_month_number(month_name: str) -> int:
-    pass
+    month_prefix = month_name.lower()[:3]
+
+    return MONTHS.index(month_prefix) + 1 if month_prefix in MONTHS else -1
