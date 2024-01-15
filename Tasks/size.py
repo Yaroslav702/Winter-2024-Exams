@@ -1,3 +1,7 @@
+KILOBYTE = 1000
+MEGABYTE = 1000000
+GIGABYTE = 1000000000
+
 def size(size: int) -> str:
     converted_size = '0 byte'
 
@@ -11,14 +15,16 @@ def size(size: int) -> str:
 def calculate_size_from_exp(size: int, exponent: int) -> str:
     result = ''
 
-    match exponent:
-        case 1:
-            result = str(round(size / 1000)) + ' kb'
-        case 2:
-            result = str(round(size / 1000000)) + ' mb'
-        case 3:
-            result = str(round(size / 1000000000)) + ' gb'
-        case _:
-            result = str(size) + ' byte'
+    size_constants = {
+        1: KILOBYTE,
+        2: MEGABYTE,
+        3: GIGABYTE,
+    }
+
+    size_units = ["byte", "kb", "mb", "gb"]
+
+    constant = size_constants.get(exponent, 1) 
+
+    result = f'{round(size / constant)} {size_units[exponent]}'
 
     return result

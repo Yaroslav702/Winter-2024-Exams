@@ -10,6 +10,3 @@ def count_types(l: list) -> dict:
         types_count[element_type] += 1
 
     return types_count
-
-
-
